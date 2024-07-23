@@ -1,0 +1,6 @@
+*:focus-visible {
+  outline: unset !important;
+  outline-width: 3px !important;
+  outline-color: orangered !important;
+  outline-style: dashed !important;
+}
