@@ -34,7 +34,7 @@
       </span>
 
       <span v-else>
-        No result for your <code>{{ searchContent }}</code>, try something else
+        No result for your <code>{{ searchContent }}</code> query, try something else
       </span>
     </h2>
 
@@ -206,14 +206,11 @@ export default defineComponent({
     },
 
     sendToDesk(person: Person) {
-      axios.post("/api/checkin/" + person.id)
-        .then(() => {
-          this.client?.publish({
-            destination: "/app/checkin",
-            body: person.id
-          });
-          this.resetSearch();
-        })
+      this.client?.publish({
+        destination: "/app/checkin",
+        body: person.id
+      });
+      this.resetSearch();
     },
 
     resetSearch() {
